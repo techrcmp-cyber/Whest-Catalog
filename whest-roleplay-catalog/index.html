@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Whest Roleplay — Katalog Mobil & Vehicle Showroom FiveM</title>
-  <meta name="description" content="Katalog pemilihan dan pembelian kendaraan exclusive Whest Roleplay FiveM server. Dapatkan hypercar, sport, SUV, dan motor impianmu dengan handling & sound custom!">
+  <title>Whest Roleplay — Exclusive Vehicle Showroom</title>
+  <meta name="description" content="Showroom kendaraan eksklusif Whest Roleplay FiveM. Katalog unit pilihan dengan performa tinggi, spesifikasi kustom, dan proses pemesanan resmi.">
   
   <!-- Favicon / Fonts / CSS -->
   <link rel="stylesheet" href="styles.css">
@@ -12,33 +12,32 @@
 </head>
 <body>
 
-  <!-- Background Particle Canvas & Cyber Grid -->
-  <canvas id="bg-canvas"></canvas>
-  <div class="cyber-grid-overlay"></div>
+  <!-- Ambient Luxury Background Glow -->
+  <div class="ambient-bg"></div>
 
   <!-- Navbar -->
   <header class="navbar" id="navbar">
     <div class="container nav-container">
-      <a href="#hero" class="nav-logo">
-        <div class="nav-logo-icon">W</div>
-        <div class="nav-logo-text">
-          <span class="nav-logo-title">WHEST <span class="cyan-glow-text">ROLEPLAY</span></span>
-          <span class="nav-logo-tag">FiveM Premium Server</span>
+      <a href="#hero" class="nav-brand">
+        <div class="nav-logo-box">W</div>
+        <div>
+          <div class="nav-brand-title">WHEST <span class="text-gradient">ROLEPLAY</span></div>
+          <div class="nav-brand-tag">Exclusive Showroom</div>
         </div>
       </a>
 
       <ul class="nav-links" id="nav-links">
-        <li><a href="#hero" class="nav-link active">Home</a></li>
-        <li><a href="#catalog" class="nav-link">Katalog Mobil</a></li>
-        <li><a href="#cara-beli" class="nav-link">Cara Beli</a></li>
-        <li><a href="#info" class="nav-link">Server Info</a></li>
+        <li><a href="#hero" class="nav-link active">Beranda</a></li>
+        <li><a href="#catalog" class="nav-link">Katalog</a></li>
+        <li><a href="#cara-beli" class="nav-link">Pemesanan</a></li>
+        <li><a href="#info" class="nav-link">Komunitas</a></li>
       </ul>
 
-      <div class="nav-actions">
-        <button class="btn-primary" onclick="copyServerIP()">
-          <i class="fa-solid fa-gamepad"></i> Join Server
-        </button>
-        <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Toggle Navigation">
+      <div style="display: flex; align-items: center; gap: 1rem;">
+        <a href="https://discord.gg/ZKTQNrTqa3" target="_blank" rel="noopener noreferrer" class="btn btn-cyan">
+          <i class="fa-brands fa-discord"></i> Join Discord
+        </a>
+        <button class="mobile-toggle" id="mobile-toggle" aria-label="Menu">
           <i class="fa-solid fa-bars"></i>
         </button>
       </div>
@@ -52,49 +51,51 @@
     <section class="hero-section" id="hero">
       <div class="container hero-grid">
         <div class="hero-content">
-          <span class="badge-pill">
-            <span class="pulse-dot"></span> Whest Roleplay Showroom V2.0
-          </span>
-          <h1 class="hero-title heading-font">
-            Wujudkan <span class="gradient-text">Garasi Impianmu</span> di Whest RP
+          <div>
+            <span class="badge-tag">WHEST ROLEPLAY • OFFICIAL SHOWROOM</span>
+          </div>
+          
+          <h1 class="hero-title font-title">
+            Garasi Eksklusif <span class="text-gradient">Pilihan Anda</span>
           </h1>
+          
           <p class="hero-subtitle">
-            Katalog kendaraan FiveM paling lengkap dengan *custom handling*, suara mesin V12 realistis, modifikasi tuning stage 4, &amp; pengiriman unit langsung ke garasi in-game milikmu!
+            Katalog kendaraan FiveM pilihan dengan spesifikasi kustom, penanganan performa tinggi, dan proses pemesanan resmi langsung ke karakter Anda.
           </p>
 
           <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
-            <a href="#catalog" class="btn-primary">
-              <i class="fa-solid fa-car"></i> Lihat Katalog Mobil
+            <a href="#catalog" class="btn btn-cyan">
+              <i class="fa-solid fa-car"></i> Eksplor Katalog
             </a>
-            <button class="btn-secondary" onclick="copyServerIP()">
-              <i class="fa-solid fa-copy"></i> Salin IP Server
-            </button>
+            <a href="https://discord.gg/ZKTQNrTqa3" target="_blank" rel="noopener noreferrer" class="btn btn-outline">
+              <i class="fa-brands fa-discord"></i> Discord Server
+            </a>
           </div>
 
           <div class="hero-stats">
             <div class="stat-item">
-              <div class="stat-number">120+</div>
-              <div class="stat-label">Mobil Custom</div>
+              <div class="stat-val">9</div>
+              <div class="stat-lbl">Unit Pilihan</div>
             </div>
             <div class="stat-item">
-              <div class="stat-number">100%</div>
-              <div class="stat-label">Custom Sound</div>
+              <div class="stat-val">100%</div>
+              <div class="stat-lbl">Custom Handling</div>
             </div>
             <div class="stat-item">
-              <div class="stat-number">24/7</div>
-              <div class="stat-label">Active Support</div>
+              <div class="stat-val">Direct</div>
+              <div class="stat-lbl">Garage Delivery</div>
             </div>
           </div>
         </div>
 
-        <div class="hero-image-wrapper">
-          <div class="hero-image-card">
-            <img src="assets/images/hero.jpg" alt="Whest Roleplay Hypercar Showroom" />
+        <div class="hero-media">
+          <div class="hero-image-box">
+            <img src="assets/images/car_aventador.jpg" alt="Whest Roleplay Showroom" loading="eager" />
             <div class="hero-badge-overlay">
-              <span class="pulse-dot"></span>
+              <span class="status-dot"></span>
               <div>
-                <div style="font-family: var(--font-heading); font-size: 0.85rem; font-weight: 700; color: var(--cyan-primary);">SHOWROOM LIVE STATUS</div>
-                <div style="font-size: 0.75rem; color: var(--text-muted);">Delivery Garasi 1-5 Menit</div>
+                <div style="font-family: var(--font-title); font-size: 0.8rem; font-weight: 700; color: var(--cyan-accent);">SHOWROOM STATUS: ACTIVE</div>
+                <div style="font-size: 0.72rem; color: var(--text-secondary);">Unit siap proses ke garasi in-game</div>
               </div>
             </div>
           </div>
@@ -107,45 +108,45 @@
       <div class="container">
         
         <div class="section-header">
-          <span class="badge-pill">VEHICLE CATALOG</span>
-          <h2 class="section-title heading-font">Katalog Garasi <span class="cyan-glow-text">Imperial</span></h2>
-          <p class="section-desc">Pilih mobil favoritmu, periksa spesifikasi lengkapnya, dan langsung pesan melalui tiket Discord Whest RP.</p>
+          <span class="badge-tag">VEHICLE COLLECTION</span>
+          <h2 class="section-title font-title">Koleksi <span class="text-gradient">Kendaraan</span></h2>
+          <p class="section-desc">Pilih unit impian Anda, pelajari spesifikasi teknisnya, dan buat tiket pemesanan resmi melalui Discord.</p>
         </div>
 
-        <!-- Controls (Search & Category Filter) -->
+        <!-- Controls (Search & Category Tabs) -->
         <div class="catalog-controls">
-          <div class="search-filter-row">
+          <div class="controls-row">
             
-            <div class="search-box">
+            <div class="search-field">
               <i class="fa-solid fa-magnifying-glass search-icon"></i>
-              <input type="text" id="search-input" class="search-input" placeholder="Cari nama mobil (contoh: Zorrusso, RSX, Shinobi)..." />
+              <input type="text" id="search-input" class="search-input" placeholder="Cari nama mobil (Skyline, Huracan, Benz)..." />
             </div>
 
-            <div class="filter-pills">
-              <button class="filter-btn active" data-category="all">Semua Mobil</button>
-              <button class="filter-btn" data-category="supercar">Supercar</button>
-              <button class="filter-btn" data-category="sport">Sport</button>
-              <button class="filter-btn" data-category="suv">SUV &amp; Offroad</button>
-              <button class="filter-btn" data-category="sedan">Sedan</button>
-              <button class="filter-btn" data-category="motorcycle">Motor</button>
+            <div class="filter-tabs">
+              <button class="tab-btn active" data-category="all">Semua Unit</button>
+              <button class="tab-btn" data-category="supercar">Supercar</button>
+              <button class="tab-btn" data-category="sport">Sport / JDM</button>
+              <button class="tab-btn" data-category="sedan">Sedan</button>
+              <button class="tab-btn" data-category="muscle">Muscle</button>
+              <button class="tab-btn" data-category="classic">Classic</button>
             </div>
           </div>
 
-          <div style="font-size: 0.85rem; color: var(--text-dim); text-align: right;" id="catalog-count">
-            Menampilkan 12 dari 12 Unit
+          <div style="font-size: 0.82rem; color: var(--text-muted); text-align: right;" id="catalog-count">
+            Menampilkan 9 dari 9 Unit
           </div>
         </div>
 
         <!-- Vehicle Grid -->
         <div class="vehicle-grid" id="vehicle-grid">
-          <!-- Dynamically Rendered via app.js -->
+          <!-- Rendered dynamically via app.js -->
         </div>
 
-        <!-- Empty Search State -->
+        <!-- Empty State -->
         <div class="no-results" id="no-results">
-          <i class="fa-solid fa-car-tunnel" style="font-size: 3rem; color: var(--cyan-primary); margin-bottom: 1rem;"></i>
-          <h3 class="heading-font" style="margin-bottom: 0.5rem;">Mobil Tidak Ditemukan</h3>
-          <p style="color: var(--text-muted);">Coba ketik nama kendaraan lain atau pilih kategori lain di atas.</p>
+          <i class="fa-solid fa-car-rear" style="font-size: 2.5rem; color: var(--cyan-accent); margin-bottom: 1rem;"></i>
+          <h3 class="font-title" style="margin-bottom: 0.4rem;">Unit Tidak Ditemukan</h3>
+          <p style="color: var(--text-secondary); font-size: 0.9rem;">Silakan coba kata kunci lain atau pilih kategori di atas.</p>
         </div>
 
       </div>
@@ -156,53 +157,50 @@
       <div class="container">
         
         <div class="section-header">
-          <span class="badge-pill">HOW TO BUY</span>
-          <h2 class="section-title heading-font">Langkah Mudah <span class="cyan-glow-text">Pembelian</span></h2>
-          <p class="section-desc">Proses pembelian mobil di Whest Roleplay dirancang cepat, aman, dan langsung dikirim oleh Staff Dealer.</p>
+          <span class="badge-tag">ORDER PROCEDURE</span>
+          <h2 class="section-title font-title">Tata Cara <span class="text-gradient">Pemesanan</span></h2>
+          <p class="section-desc">Alur pemesanan terstruktur untuk memastikan unit Anda sampai dengan aman dan tepat ke garasi karakter Anda.</p>
         </div>
 
         <div class="steps-grid">
           
-          <div class="step-card glass-panel">
+          <div class="step-card glass-card">
             <div class="step-number">1</div>
-            <h3 class="step-title">Pilih Mobil</h3>
-            <p class="step-desc">Eksplor katalog di atas dan temukan kendaraan yang sesuai dengan selera &amp; kebutuhan roleplay Anda.</p>
+            <h3 class="step-title">Pilih Kendaraan</h3>
+            <p class="step-desc">Tentukan unit kendaraan yang ingin Anda miliki melalui katalog di atas.</p>
           </div>
 
-          <div class="step-card glass-panel">
+          <div class="step-card glass-card">
             <div class="step-number">2</div>
-            <h3 class="step-title">Klik Detail &amp; Beli</h3>
-            <p class="step-desc">Buka popup mobil lalu klik tombol "Order via Discord" untuk otomatis menyalin format pemesanan.</p>
+            <h3 class="step-title">Buka Detail Unit</h3>
+            <p class="step-desc">Klik tombol "Detail &amp; Beli" untuk melihat spesifikasi dan menyalin format pemesanan resmi.</p>
           </div>
 
-          <div class="step-card glass-panel">
+          <div class="step-card glass-card">
             <div class="step-number">3</div>
-            <h3 class="step-title">Kirim di Discord</h3>
-            <p class="step-desc">Buka Discord Whest RP, buat tiket pada channel <strong style="color: var(--cyan-primary);">#ticket-showroom</strong> dan tempelkan tiket.</p>
+            <h3 class="step-title">Buat Tiket Discord</h3>
+            <p class="step-desc">Buka server Discord Whest RP, buat tiket di channel <strong style="color: var(--cyan-accent);">#ticket-showroom</strong>, lalu tempelkan detail pesanan Anda.</p>
           </div>
 
-          <div class="step-card glass-panel">
+          <div class="step-card glass-card">
             <div class="step-number">4</div>
-            <h3 class="step-title">Mobil Dikirim!</h3>
-            <p class="step-desc">Staff Dealer akan memproses transaksi Anda dan mengantarkan unit mobil langsung ke garasi in-game!</p>
+            <h3 class="step-title">Konfirmasi &amp; Pengiriman</h3>
+            <p class="step-desc">Staff dealer akan memverifikasi transaksi dan mendaftarkan unit langsung ke garasi in-game Anda.</p>
           </div>
 
         </div>
 
-        <!-- Info Server Banner -->
+        <!-- Community Banner -->
         <div class="info-banner" id="info">
-          <div class="info-banner-content">
-            <span class="badge-pill" style="margin-bottom: 0.5rem;">WHEST ROLEPLAY COMMUNITY</span>
-            <h3 class="heading-font">Belum Punya Karakter di Whest RP?</h3>
-            <p>Bergabunglah dengan ribuan player roleplay aktif dan rasakan pengalaman roleplay FiveM paling seru!</p>
+          <div>
+            <span class="badge-tag" style="margin-bottom: 0.5rem;">WHEST ROLEPLAY COMMUNITY</span>
+            <h3 class="font-title">Bergabung Bersama Kami</h3>
+            <p>Dapatkan informasi pembaruan kendaraan, event garasi, dan interaksi komunitas langsung di Discord.</p>
           </div>
-          <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
-            <a href="https://discord.gg/ZKTQNrTqa3" target="_blank" rel="noopener noreferrer" class="btn-primary">
+          <div>
+            <a href="https://discord.gg/ZKTQNrTqa3" target="_blank" rel="noopener noreferrer" class="btn btn-cyan">
               <i class="fa-brands fa-discord"></i> Join Discord Whest RP
             </a>
-            <button class="btn-secondary" onclick="copyServerIP()">
-              <i class="fa-solid fa-gamepad"></i> Copy IP Server
-            </button>
           </div>
         </div>
 
@@ -211,38 +209,38 @@
 
   </main>
 
-  <!-- Spec Detail Modal Popup -->
+  <!-- Spec Detail Modal -->
   <div class="modal-overlay" id="modal-overlay">
     <div class="modal-content">
-      <button class="modal-close-btn" id="modal-close-btn" aria-label="Close Modal">
+      <button class="modal-close-btn" id="modal-close-btn" aria-label="Close">
         <i class="fa-solid fa-xmark"></i>
       </button>
 
-      <img id="modal-img" src="" alt="Vehicle Spec Detail" class="modal-header-img" />
+      <img id="modal-img" src="" alt="Vehicle Detail" class="modal-header-img" />
 
       <div class="modal-body">
         <div class="modal-vehicle-header">
           <div>
-            <h2 class="heading-font" id="modal-title" style="font-size: 1.75rem;">Vehicle Title</h2>
-            <p style="color: var(--text-muted); font-size: 0.9rem;" id="modal-code">Kode Unit</p>
+            <h2 class="font-title" id="modal-title" style="font-size: 1.6rem;">Vehicle Title</h2>
+            <p style="color: var(--text-muted); font-size: 0.85rem;" id="modal-code">Kode Unit</p>
           </div>
           <div class="modal-price-box">
-            <div id="modal-price-ic" class="modal-price-ic">$0 IC</div>
-            <div id="modal-price-vip" style="font-size: 0.85rem; color: #a78bfa;">Donasi VIP</div>
+            <div id="modal-price-val" class="modal-price-val">Rp 0</div>
+            <div class="modal-price-lbl">Harga Resmi</div>
           </div>
         </div>
 
-        <hr style="border: none; border-top: 1px solid var(--cyan-border);" />
+        <hr style="border: none; border-top: 1px solid var(--border-subtle);" />
 
-        <!-- Detailed Spec Bars -->
+        <!-- Performance Specs -->
         <div>
-          <h4 class="heading-font" style="font-size: 1rem; margin-bottom: 1rem; color: var(--cyan-primary);">PERFORMANCE &amp; SPECS</h4>
+          <h4 class="font-title" style="font-size: 0.92rem; margin-bottom: 1rem; color: var(--cyan-accent);">SPESIFIKASI TEKNIS</h4>
           
           <div class="specs-detail-grid">
             <div class="spec-bar-group">
               <div class="spec-bar-label">
                 <span>Top Speed</span>
-                <span id="bar-speed-val" style="color: var(--cyan-primary);">0 km/h</span>
+                <span id="bar-speed-val" style="color: var(--cyan-accent);">0 km/h</span>
               </div>
               <div class="spec-bar-track">
                 <div class="spec-bar-fill" id="bar-speed"></div>
@@ -251,8 +249,8 @@
 
             <div class="spec-bar-group">
               <div class="spec-bar-label">
-                <span>0 - 100 km/h</span>
-                <span id="bar-accel-val" style="color: var(--cyan-primary);">0s</span>
+                <span>Akselerasi (0 - 100 km/h)</span>
+                <span id="bar-accel-val" style="color: var(--cyan-accent);">0s</span>
               </div>
               <div class="spec-bar-track">
                 <div class="spec-bar-fill" id="bar-accel"></div>
@@ -262,7 +260,7 @@
             <div class="spec-bar-group">
               <div class="spec-bar-label">
                 <span>Handling Score</span>
-                <span id="bar-handling-val" style="color: var(--cyan-primary);">0/10</span>
+                <span id="bar-handling-val" style="color: var(--cyan-accent);">0/10</span>
               </div>
               <div class="spec-bar-track">
                 <div class="spec-bar-fill" id="bar-handling"></div>
@@ -272,7 +270,7 @@
             <div class="spec-bar-group">
               <div class="spec-bar-label">
                 <span>Kapasitas Bagasi</span>
-                <span id="bar-trunk-val" style="color: var(--cyan-primary);">0 KG</span>
+                <span id="bar-trunk-val" style="color: var(--cyan-accent);">0 KG</span>
               </div>
               <div class="spec-bar-track">
                 <div class="spec-bar-fill" id="bar-trunk"></div>
@@ -281,32 +279,32 @@
           </div>
         </div>
 
-        <!-- Quick Info Grid -->
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; background: rgba(5,8,16,0.6); padding: 12px 18px; border-radius: var(--radius-sm); border: 1px solid rgba(0,229,255,0.1);">
+        <!-- Overview Grid -->
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; background: rgba(8,10,15,0.6); padding: 12px 16px; border-radius: var(--radius-sm); border: 1px solid var(--border-subtle);">
           <div>
-            <span style="font-size: 0.75rem; color: var(--text-dim); text-transform: uppercase; display: block;">Mesin &amp; Performance</span>
-            <strong id="modal-engine" style="font-size: 0.95rem; color: var(--text-main);">V12 Engine</strong>
+            <span style="font-size: 0.72rem; color: var(--text-muted); text-transform: uppercase; display: block;">Konfigurasi Mesin</span>
+            <strong id="modal-engine" style="font-size: 0.9rem; color: var(--text-primary);">Engine</strong>
           </div>
           <div>
-            <span style="font-size: 0.75rem; color: var(--text-dim); text-transform: uppercase; display: block;">Kapasitas Penumpang</span>
-            <strong id="modal-seats" style="font-size: 0.95rem; color: var(--text-main);">2 Kursi</strong>
+            <span style="font-size: 0.72rem; color: var(--text-muted); text-transform: uppercase; display: block;">Kapasitas Kursi</span>
+            <strong id="modal-seats" style="font-size: 0.9rem; color: var(--text-primary);">2 Kursi</strong>
           </div>
         </div>
 
-        <!-- Feature Badges -->
+        <!-- Features -->
         <div>
-          <h4 class="heading-font" style="font-size: 0.9rem; margin-bottom: 0.5rem; color: var(--text-muted);">FITUR UNGGULAN VEHICLE</h4>
+          <h4 class="font-title" style="font-size: 0.85rem; margin-bottom: 0.6rem; color: var(--text-secondary);">FITUR KUSTOM</h4>
           <div class="feature-tags-list" id="modal-features">
             <!-- Dynamic Features -->
           </div>
         </div>
 
-        <!-- Modal Actions -->
+        <!-- Actions -->
         <div class="modal-actions">
-          <button class="btn-primary" style="flex: 1;" onclick="orderVehicleViaDiscord()">
+          <button class="btn btn-cyan" style="flex: 1;" onclick="orderVehicleViaDiscord()">
             <i class="fa-brands fa-discord"></i> Order via Ticket Discord
           </button>
-          <button class="btn-secondary" onclick="closeVehicleModal()">
+          <button class="btn btn-outline" onclick="closeVehicleModal()">
             Tutup
           </button>
         </div>
@@ -322,14 +320,14 @@
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand">
-          <a href="#hero" class="nav-logo" style="margin-bottom: 1rem;">
-            <div class="nav-logo-icon">W</div>
-            <div class="nav-logo-text">
-              <span class="nav-logo-title">WHEST <span class="cyan-glow-text">ROLEPLAY</span></span>
-              <span class="nav-logo-tag">FiveM Premium Server</span>
+          <a href="#hero" class="nav-brand" style="margin-bottom: 1rem;">
+            <div class="nav-logo-box">W</div>
+            <div>
+              <div class="nav-brand-title">WHEST <span class="text-gradient">ROLEPLAY</span></div>
+              <div class="nav-brand-tag">Exclusive Showroom</div>
             </div>
           </a>
-          <p>Website resmi katalog kendaraan &amp; garasi Whest Roleplay FiveM Server. Temukan kendaraan impianmu dan nikmati petualangan roleplay tak terlupakan.</p>
+          <p>Katalog resmi kendaraan Whest Roleplay FiveM Server. Dikelola langsung oleh tim showroom resmi.</p>
         </div>
 
         <div>
@@ -337,29 +335,27 @@
           <ul class="footer-links">
             <li><a href="#hero">Beranda</a></li>
             <li><a href="#catalog">Katalog Mobil</a></li>
-            <li><a href="#cara-beli">Cara Pembelian</a></li>
-            <li><a href="#info">Server Status</a></li>
+            <li><a href="#cara-beli">Tata Cara Pemesanan</a></li>
+            <li><a href="#info">Komunitas</a></li>
           </ul>
         </div>
 
         <div>
-          <h4 class="footer-col-title">KOMUNITAS</h4>
+          <h4 class="footer-col-title">BANTUAN &amp; KOMUNITAS</h4>
           <ul class="footer-links">
-            <li><a href="https://discord.gg/ZKTQNrTqa3" target="_blank">Discord Server</a></li>
-            <li><a href="#" onclick="copyServerIP(); return false;">Connect IP FiveM</a></li>
-            <li><a href="#">Rules &amp; Guidelines</a></li>
-            <li><a href="#">Support Ticket</a></li>
+            <li><a href="https://discord.gg/ZKTQNrTqa3" target="_blank">Discord Server Resmi</a></li>
+            <li><a href="https://discord.gg/ZKTQNrTqa3" target="_blank">Customer Support Ticket</a></li>
           </ul>
         </div>
       </div>
 
       <div class="footer-bottom">
-        <p>&copy; 2026 Whest Roleplay. All rights reserved. Built with Cyan Glossy Glassmorphism Design.</p>
+        <p>&copy; 2026 Whest Roleplay. All rights reserved.</p>
       </div>
     </div>
   </footer>
 
-  <!-- Application Logic -->
+  <!-- Scripts -->
   <script src="app.js"></script>
 </body>
 </html>
