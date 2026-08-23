@@ -1,248 +1,179 @@
 /* ==========================================================================
-   WHEST ROLEPLAY - CATALOG JAVASCRIPT LOGIC
+   WHEST ROLEPLAY - EXCLUSIVE VEHICLE SHOWROOM LOGIC
    ========================================================================== */
 
-// 1. VEHICLE DATASET (12 Realistic FiveM Roleplay Vehicles)
+// 1. VEHICLE DATASET (9 Real Custom Vehicles - Clean Real Money Pricing)
 const vehiclesData = [
   {
-    id: "pegassi-zorrusso",
-    name: "Pegassi Zorrusso Hyper",
-    code: "ZORRUSSO-V12",
-    category: "supercar",
-    priceIC: "$450.000",
-    priceVIP: "Rp 150.000",
-    image: "assets/images/supercar.jpg",
-    topSpeed: "350 km/h",
-    topSpeedPct: 94,
-    accel: "2.2 Detik",
-    accelPct: 96,
-    handling: "9.8 / 10",
-    handlingPct: 98,
-    trunk: "40 KG",
-    trunkPct: 40,
-    seats: "2 Kursi",
-    engine: "6.0L V12 Quad-Turbo",
-    features: ["Sound V12 Custom", "Active Aero Wing", "Drift Mode Switch", "Livery Carbon Edition", "Custom LED Underglow"]
-  },
-  {
-    id: "grotti-rsx",
-    name: "Grotti Itali RSX Apex",
-    code: "RSX-HYBRID",
-    category: "supercar",
-    priceIC: "$520.000",
-    priceVIP: "Rp 185.000",
-    image: "assets/images/hero.jpg",
-    topSpeed: "365 km/h",
-    topSpeedPct: 98,
-    accel: "2.0 Detik",
-    accelPct: 99,
-    handling: "9.9 / 10",
-    handlingPct: 99,
-    trunk: "35 KG",
-    trunkPct: 35,
-    seats: "2 Kursi",
-    engine: "V10 Hybrid Electro",
-    features: ["VIP Exclusive Unit", "Launch Control GT", "Custom Exhaust Backfire", "Armored Glass Option", "Carbon Ceramic Brakes"]
-  },
-  {
-    id: "shinobi-cyber",
-    name: "Nagasaki Shinobi Apex Bike",
-    code: "SHINOBI-R1000",
-    category: "motorcycle",
-    priceIC: "$160.000",
-    priceVIP: "Rp 65.000",
-    image: "assets/images/motor.jpg",
-    topSpeed: "330 km/h",
-    topSpeedPct: 89,
-    accel: "2.1 Detik",
-    accelPct: 97,
-    handling: "9.6 / 10",
-    handlingPct: 96,
-    trunk: "15 KG",
-    trunkPct: 15,
-    seats: "1-2 Kursi",
-    engine: "998cc Racing Spec",
-    features: ["Quickshifter System", "Akrapovic Exhaust Sound", "Agile Lane Splitter", "Custom Wheel Light"]
-  },
-  {
-    id: "pfister-comet-s2",
-    name: "Pfister Comet S2 Turbo",
-    code: "COMET-S2-GT",
+    id: "nissan-skyline-r33",
+    name: "Nissan Skyline GT-R R33 Widebody",
+    code: "R33-GTR-WIDE",
     category: "sport",
-    priceIC: "$280.000",
-    priceVIP: "Rp 95.000",
-    image: "https://images.unsplash.com/photo-1614162692292-7ac56d7f7f1e?auto=format&fit=crop&w=1000&q=80",
-    topSpeed: "310 km/h",
-    topSpeedPct: 84,
-    accel: "2.8 Detik",
-    accelPct: 88,
-    handling: "9.2 / 10",
-    handlingPct: 92,
-    trunk: "50 KG",
-    trunkPct: 50,
-    seats: "2 Kursi",
-    engine: "3.8L Flat-6 Twin-Turbo",
-    features: ["Rear Engine Layout", "Convertible Top", "Tuning Level 4 Package", "Sport Mode Plus"]
-  },
-  {
-    id: "obey-10f-widebody",
-    name: "Obey 10F Widebody GT",
-    code: "OBEY-10F-WB",
-    category: "sport",
-    priceIC: "$310.000",
-    priceVIP: "Rp 110.000",
-    image: "https://images.unsplash.com/photo-1603584173870-7f23fdae1b7a?auto=format&fit=crop&w=1000&q=80",
-    topSpeed: "325 km/h",
+    priceReal: "Rp 500.000",
+    image: "assets/images/car_r33.jpg",
+    topSpeed: "320 km/h",
     topSpeedPct: 88,
-    accel: "2.5 Detik",
-    accelPct: 92,
+    accel: "2.6 Detik",
+    accelPct: 91,
     handling: "9.4 / 10",
     handlingPct: 94,
     trunk: "45 KG",
     trunkPct: 45,
     seats: "2 Kursi",
-    engine: "5.2L V10 Naturally Aspirated",
-    features: ["Liberty Walk Widebody Kit", "Quattro All-Wheel Drive", "Custom Pops & Bangs", "Track Day suspension"]
+    engine: "RB26DETT Twin-Turbo",
+    features: ["Widebody Kit Custom", "Toyo Tires Lettering Stance", "Sound RB26 Custom", "Hood Vents Aero", "Track Ready Tuning"]
   },
   {
-    id: "vapid-dominator-gtx",
-    name: "Vapid Dominator GTX Custom",
-    code: "DOMINATOR-V8",
+    id: "porsche-911-rwb",
+    name: "Porsche 911 RWB Rauh-Welt",
+    code: "PORSCHE-911-RWB",
     category: "sport",
-    priceIC: "$195.000",
-    priceVIP: "Rp 75.000",
-    image: "https://images.unsplash.com/photo-1584345604476-8ec5e12e42dd?auto=format&fit=crop&w=1000&q=80",
-    topSpeed: "295 km/h",
-    topSpeedPct: 79,
-    accel: "3.1 Detik",
-    accelPct: 84,
-    handling: "8.7 / 10",
-    handlingPct: 87,
-    trunk: "60 KG",
-    trunkPct: 60,
-    seats: "2 Kursi",
-    engine: "5.0L Supercharged Muscle V8",
-    features: ["Supercharger Whine FX", "Wheelie Ready Tuning", "Custom Hood Scoop", "Drag Race Tire Option"]
-  },
-  {
-    id: "enus-jubilee",
-    name: "Enus Jubilee Armored VIP",
-    code: "JUBILEE-ARMOR",
-    category: "suv",
-    priceIC: "$380.000",
-    priceVIP: "Rp 140.000",
-    image: "https://images.unsplash.com/photo-1563720223185-11003d516935?auto=format&fit=crop&w=1000&q=80",
-    topSpeed: "260 km/h",
-    topSpeedPct: 70,
-    accel: "3.8 Detik",
-    accelPct: 76,
-    handling: "8.9 / 10",
-    handlingPct: 89,
-    trunk: "120 KG",
-    trunkPct: 90,
-    seats: "4 Kursi",
-    engine: "6.75L Twin-Turbo V12",
-    features: ["Anti-Bullet B7 Glass", "Slick Oil Dispenser", "Starlight Roof Ceiling", "Executive Minibar Interior"]
-  },
-  {
-    id: "gallivanter-baller",
-    name: "Gallivanter Baller ST-D",
-    code: "BALLER-STD-V8",
-    category: "suv",
-    priceIC: "$240.000",
-    priceVIP: "Rp 85.000",
-    image: "https://images.unsplash.com/photo-1519641471654-76ce0107ad1b?auto=format&fit=crop&w=1000&q=80",
-    topSpeed: "250 km/h",
-    topSpeedPct: 68,
-    accel: "4.1 Detik",
-    accelPct: 72,
-    handling: "8.6 / 10",
-    handlingPct: 86,
-    trunk: "150 KG",
-    trunkPct: 100,
-    seats: "4 Kursi",
-    engine: "5.0L Supercharged V8",
-    features: ["Air Suspension Stance", "Huge Trunk Capacity", "Offroad Mode Lock", "Family Executive Comfort"]
-  },
-  {
-    id: "ubermacht-rhinehart",
-    name: "Ubermacht Rhinehart M-Touring",
-    code: "RHINEHART-M",
-    category: "sedan",
-    priceIC: "$175.000",
-    priceVIP: "Rp 60.000",
-    image: "https://images.unsplash.com/photo-1555215695-3004980ad54e?auto=format&fit=crop&w=1000&q=80",
-    topSpeed: "280 km/h",
-    topSpeedPct: 75,
-    accel: "3.4 Detik",
-    accelPct: 80,
-    handling: "9.0 / 10",
-    handlingPct: 90,
-    trunk: "90 KG",
-    trunkPct: 75,
-    seats: "4 Kursi",
-    engine: "4.4L Twin-Turbo V8",
-    features: ["Sleeper Wagon Body", "xDrive AWD Traction", "Executive Leather Cabin", "Stage 2 ECU Remap"]
-  },
-  {
-    id: "albany-vstr",
-    name: "Albany VSTR Luxury Mafia",
-    code: "VSTR-LUXURY",
-    category: "sedan",
-    priceIC: "$210.000",
-    priceVIP: "Rp 70.000",
-    image: "https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1000&q=80",
-    topSpeed: "290 km/h",
-    topSpeedPct: 78,
-    accel: "3.2 Detik",
-    accelPct: 82,
-    handling: "8.9 / 10",
-    handlingPct: 89,
-    trunk: "80 KG",
-    trunkPct: 70,
-    seats: "4 Kursi",
-    engine: "6.2L Supercharged V8",
-    features: ["Tinted VIP Windows", "Aggressive Front Grille", "Deep V8 Rumble Sound", "Gang/Mafia Aesthetic"]
-  },
-  {
-    id: "bati-801-rr",
-    name: "Pegassi Bati 801 RR Racing",
-    code: "BATI-801-RR",
-    category: "motorcycle",
-    priceIC: "$125.000",
-    priceVIP: "Rp 50.000",
-    image: "https://images.unsplash.com/photo-1558981806-ec527fa84c39?auto=format&fit=crop&w=1000&q=80",
-    topSpeed: "315 km/h",
-    topSpeedPct: 85,
+    priceReal: "Rp 350.000",
+    image: "assets/images/car_rwb.jpg",
+    topSpeed: "335 km/h",
+    topSpeedPct: 91,
     accel: "2.4 Detik",
     accelPct: 94,
-    handling: "9.3 / 10",
-    handlingPct: 93,
-    trunk: "10 KG",
-    trunkPct: 10,
-    seats: "1-2 Kursi",
-    engine: "1000cc Circuit Spec",
-    features: ["Lightweight Carbon Fairing", "Slick Track Tires", "Ultra High Top Speed", "MotoGP Livery"]
+    handling: "9.7 / 10",
+    handlingPct: 97,
+    trunk: "40 KG",
+    trunkPct: 40,
+    seats: "2 Kursi",
+    engine: "3.8L Flat-6 Air-Cooled",
+    features: ["RAUH-Welt Begriff Original", "Custom X3 MARS License Plate", "Ducktail Spoiler", "Air-Cooled Engine Sound", "Deep Dish Rims"]
   },
   {
-    id: "truffade-thrax-apex",
-    name: "Truffade Thrax Hypercar",
-    code: "THRAX-APEX-W16",
+    id: "lamborghini-huracan-lb",
+    name: "Lamborghini Huracán Liberty Walk",
+    code: "HURACAN-LB-PERF",
     category: "supercar",
-    priceIC: "$650.000",
-    priceVIP: "Rp 220.000",
-    image: "https://images.unsplash.com/photo-1544829099-b9a0c07fad1a?auto=format&fit=crop&w=1000&q=80",
-    topSpeed: "380 km/h",
+    priceReal: "Rp 650.000",
+    image: "assets/images/car_huracan.jpg",
+    topSpeed: "355 km/h",
+    topSpeedPct: 96,
+    accel: "2.1 Detik",
+    accelPct: 97,
+    handling: "9.8 / 10",
+    handlingPct: 98,
+    trunk: "35 KG",
+    trunkPct: 35,
+    seats: "2 Kursi",
+    engine: "5.2L V10 Naturally Aspirated",
+    features: ["Liberty Walk Performance Kit", "Deep Chrome Dish Wheels", "Purple Metallic Paint", "V10 Screamer Exhaust", "Lowered Stance"]
+  },
+  {
+    id: "ferrari-488-pista",
+    name: "Ferrari 488 Pista / F8 Custom",
+    code: "FERRARI-488-PISTA",
+    category: "supercar",
+    priceReal: "Rp 450.000",
+    image: "assets/images/car_ferrari.jpg",
+    topSpeed: "360 km/h",
+    topSpeedPct: 97,
+    accel: "2.0 Detik",
+    accelPct: 98,
+    handling: "9.9 / 10",
+    handlingPct: 99,
+    trunk: "30 KG",
+    trunkPct: 30,
+    seats: "2 Kursi",
+    engine: "3.9L Twin-Turbo V8",
+    features: ["S-Duct Aero Bonnet", "Carbon Pista Package", "Racing Center Stripe", "Yellow Caliper Option", "High-Downforce Aero"]
+  },
+  {
+    id: "lamborghini-aventador-svj",
+    name: "Lamborghini Aventador SVJ LB",
+    code: "AVENTADOR-SVJ-LB",
+    category: "supercar",
+    priceReal: "Rp 650.000",
+    image: "assets/images/car_aventador.jpg",
+    topSpeed: "375 km/h",
     topSpeedPct: 100,
     accel: "1.9 Detik",
     accelPct: 100,
     handling: "10.0 / 10",
     handlingPct: 100,
-    trunk: "30 KG",
-    trunkPct: 30,
+    trunk: "25 KG",
+    trunkPct: 25,
     seats: "2 Kursi",
-    engine: "8.0L Quad-Turbo W16",
-    features: ["Limited Edition (1 of 3 Server)", "Ultimate Top Speed Champion", "Hydraulic Rear Wing", "Custom Soundscape"]
+    engine: "6.5L V12 Quad-Turbo",
+    features: ["VIP Limited Unit (1 of 3)", "SVJ Swan Neck Carbon Wing", "Extreme Chrome Stance", "V12 Flame Backfire FX", "Apex Performance"]
+  },
+  {
+    id: "mercedes-560-sec-amg",
+    name: "Mercedes-Benz 560 SEC AMG",
+    code: "BENZ-560-SEC-AMG",
+    category: "classic",
+    priceReal: "Rp 250.000",
+    image: "assets/images/car_benz.jpg",
+    topSpeed: "285 km/h",
+    topSpeedPct: 77,
+    accel: "3.4 Detik",
+    accelPct: 80,
+    handling: "8.9 / 10",
+    handlingPct: 89,
+    trunk: "80 KG",
+    trunkPct: 75,
+    seats: "2 Kursi",
+    engine: "6.0L V8 AMG Hammer",
+    features: ["Classic 80s AMG Hammer Kit", "Blackout Front Grille", "VIP Mafia Executive Style", "Deep Dish Custom Wheels", "Luxury Leather Interior"]
+  },
+  {
+    id: "audi-rs7-sportback",
+    name: "Audi RS7 Sportback Widebody",
+    code: "AUDI-RS7-SPORTBACK",
+    category: "sedan",
+    priceReal: "Rp 300.000",
+    image: "assets/images/car_rs7.jpg",
+    topSpeed: "325 km/h",
+    topSpeedPct: 89,
+    accel: "2.5 Detik",
+    accelPct: 93,
+    handling: "9.3 / 10",
+    handlingPct: 93,
+    trunk: "100 KG",
+    trunkPct: 85,
+    seats: "4 Kursi",
+    engine: "4.0L Twin-Turbo V8",
+    features: ["Quattro AWD All-Weather Traction", "Electric Blue Pearl Paint", "Sportback 4-Door Utility", "Stage 3 ECU Remap", "Aggressive Honeycomb Grille"]
+  },
+  {
+    id: "bmw-m3-g80-stance",
+    name: "BMW M3 G80 Competition",
+    code: "BMW-M3-G80-STANCE",
+    category: "sedan",
+    priceReal: "Rp 250.000",
+    image: "assets/images/car_m3g80.jpg",
+    topSpeed: "330 km/h",
+    topSpeedPct: 90,
+    accel: "2.3 Detik",
+    accelPct: 95,
+    handling: "9.5 / 10",
+    handlingPct: 95,
+    trunk: "85 KG",
+    trunkPct: 70,
+    seats: "4 Kursi",
+    engine: "3.0L Twin-Turbo S58 Inline-6",
+    features: ["G80 Vertical Kidney Grille", "Extreme Stance Camber Kit", "Windshield Custom Banner", "M-Performance Quad Exhaust", "Drift Mode Switch"]
+  },
+  {
+    id: "dodge-challenger-srt",
+    name: "Dodge Challenger SRT Demon",
+    code: "CHALLENGER-SRT-DEMON",
+    category: "muscle",
+    priceReal: "Rp 400.000",
+    image: "assets/images/car_challenger.jpg",
+    topSpeed: "315 km/h",
+    topSpeedPct: 86,
+    accel: "2.3 Detik",
+    accelPct: 95,
+    handling: "8.8 / 10",
+    handlingPct: 88,
+    trunk: "70 KG",
+    trunkPct: 60,
+    seats: "2 Kursi",
+    engine: "6.2L Supercharged HEMI V8",
+    features: ["HEMI Supercharger Whine", "Scat Pack Tires Lettering", "Widebody Demon Fenders", "Drag Launch Control", "Aggressive Muscle Sound"]
   }
 ];
 
@@ -251,9 +182,8 @@ let currentCategory = "all";
 let searchQuery = "";
 let selectedVehicle = null;
 
-// DOM Elements
+// DOM Initialization
 document.addEventListener("DOMContentLoaded", () => {
-  initBackgroundCanvas();
   renderCatalog();
   setupEventListeners();
   setupNavbarScroll();
@@ -289,11 +219,11 @@ function renderCatalog() {
   if (noResults) noResults.classList.remove("visible");
 
   grid.innerHTML = filtered.map(item => `
-    <div class="vehicle-card glass-panel" data-id="${item.id}">
-      <div class="card-image-wrap">
-        <span class="badge-pill card-badge">${item.category}</span>
-        <img src="${item.image}" alt="${item.name}" loading="lazy" />
-        <div class="card-price-tag">${item.priceIC} IC</div>
+    <div class="vehicle-card glass-card" data-id="${item.id}">
+      <div class="card-img-wrap">
+        <span class="badge-tag card-badge">${item.category.toUpperCase()}</span>
+        <img src="${item.image}" alt="${item.name}" loading="lazy" decoding="async" width="600" height="350" />
+        <div class="card-price-tag">${item.priceReal}</div>
       </div>
       <div class="card-body">
         <div>
@@ -317,8 +247,8 @@ function renderCatalog() {
         </div>
 
         <div class="card-footer">
-          <span class="vip-price">VIP: ${item.priceVIP}</span>
-          <button class="btn-primary btn-sm view-detail-btn" onclick="openVehicleModal('${item.id}')">
+          <span class="unit-status"><i class="fa-solid fa-check"></i> Official Unit</span>
+          <button class="btn btn-cyan btn-sm" onclick="openVehicleModal('${item.id}')">
             Detail & Beli
           </button>
         </div>
@@ -329,8 +259,7 @@ function renderCatalog() {
 
 // 3. EVENT LISTENERS SETUP
 function setupEventListeners() {
-  // Category Filter Buttons
-  const filterBtns = document.querySelectorAll(".filter-btn");
+  const filterBtns = document.querySelectorAll(".tab-btn");
   filterBtns.forEach(btn => {
     btn.addEventListener("click", (e) => {
       filterBtns.forEach(b => b.classList.remove("active"));
@@ -340,7 +269,6 @@ function setupEventListeners() {
     });
   });
 
-  // Search Input
   const searchInput = document.getElementById("search-input");
   if (searchInput) {
     searchInput.addEventListener("input", (e) => {
@@ -349,7 +277,6 @@ function setupEventListeners() {
     });
   }
 
-  // Modal Close Events
   const modalOverlay = document.getElementById("modal-overlay");
   const modalCloseBtn = document.getElementById("modal-close-btn");
   
@@ -362,13 +289,11 @@ function setupEventListeners() {
     });
   }
 
-  // ESC key to close modal
   document.addEventListener("keydown", (e) => {
     if (e.key === "Escape") closeVehicleModal();
   });
 
-  // Mobile Menu Toggle
-  const mobileBtn = document.getElementById("mobile-menu-btn");
+  const mobileBtn = document.getElementById("mobile-toggle");
   const navLinks = document.getElementById("nav-links");
   if (mobileBtn && navLinks) {
     mobileBtn.addEventListener("click", () => {
@@ -385,28 +310,23 @@ function openVehicleModal(id) {
   selectedVehicle = vehicle;
   const overlay = document.getElementById("modal-overlay");
   
-  // Populate modal content
   document.getElementById("modal-img").src = vehicle.image;
   document.getElementById("modal-title").textContent = vehicle.name;
   document.getElementById("modal-code").textContent = `Kode Unit: ${vehicle.code} | Kategori: ${vehicle.category.toUpperCase()}`;
-  document.getElementById("modal-price-ic").textContent = `${vehicle.priceIC} IC`;
-  document.getElementById("modal-price-vip").textContent = `Donasi VIP: ${vehicle.priceVIP}`;
+  document.getElementById("modal-price-val").textContent = `${vehicle.priceReal}`;
   document.getElementById("modal-engine").textContent = vehicle.engine;
   document.getElementById("modal-seats").textContent = vehicle.seats;
   
-  // Spec Progress Bars
   setSpecBar("bar-speed", vehicle.topSpeedPct, vehicle.topSpeed);
   setSpecBar("bar-accel", vehicle.accelPct, vehicle.accel);
   setSpecBar("bar-handling", vehicle.handlingPct, vehicle.handling);
   setSpecBar("bar-trunk", vehicle.trunkPct, vehicle.trunk);
 
-  // Features tags
   const tagsContainer = document.getElementById("modal-features");
   tagsContainer.innerHTML = vehicle.features.map(f => `
     <span class="feature-tag">⚡ ${f}</span>
   `).join("");
 
-  // Open Modal
   overlay.classList.add("active");
   document.body.style.overflow = "hidden";
 }
@@ -429,36 +349,27 @@ function closeVehicleModal() {
   if (overlay) overlay.classList.remove("active");
   document.body.style.overflow = "auto";
   
-  // Reset spec bars width for animation
   ["bar-speed", "bar-accel", "bar-handling", "bar-trunk"].forEach(id => {
     const fill = document.getElementById(id);
     if (fill) fill.style.width = "0%";
   });
 }
 
-// 5. ORDER TICKET GENERATOR & COPY TOAST
+// 5. ORDER TICKET GENERATOR & DISCORD REDIRECT
 function orderVehicleViaDiscord() {
   if (!selectedVehicle) return;
 
-  const ticketText = `[PESANAN MOBIL WHEST ROLEPLAY]\n----------------------------------\nNama Car / Karakter: [Isi Nama IC Anda]\nNama Mobil: ${selectedVehicle.name}\nKode Mobil: ${selectedVehicle.code}\nHarga IC: ${selectedVehicle.priceIC}\nOpsi Donasi VIP: ${selectedVehicle.priceVIP}\n----------------------------------\nMohon diproses staff Whest RP!`;
+  const ticketText = `[PESANAN MOBIL WHEST ROLEPLAY]\n----------------------------------\nNama Car / Karakter: [Isi Nama IC Anda]\nNama Mobil: ${selectedVehicle.name}\nKode Mobil: ${selectedVehicle.code}\nHarga: ${selectedVehicle.priceReal}\n----------------------------------\nMohon diproses staff Whest RP!`;
 
   const discordUrl = "https://discord.gg/ZKTQNrTqa3";
 
   navigator.clipboard.writeText(ticketText).then(() => {
-    showToast(`✅ Format tiket ${selectedVehicle.name} disalin! Membuka Discord...`);
+    showToast(`✅ Tiket ${selectedVehicle.name} disalin! Membuka Discord...`);
     setTimeout(() => {
       window.open(discordUrl, "_blank");
-    }, 800);
+    }, 600);
   }).catch(() => {
-    showToast(`✅ Format tiket disalin! Membuka Discord...`);
     window.open(discordUrl, "_blank");
-  });
-}
-
-function copyServerIP() {
-  const serverIP = "connect cfx.re/join/whest-roleplay";
-  navigator.clipboard.writeText(serverIP).then(() => {
-    showToast("🚀 IP FiveM Whest Roleplay berhasil disalin ke clipboard!");
   });
 }
 
@@ -468,98 +379,31 @@ function showToast(message) {
 
   const toast = document.createElement("div");
   toast.className = "toast show";
-  toast.innerHTML = `
-    <span>${message}</span>
-  `;
+  toast.innerHTML = `<span>${message}</span>`;
   container.appendChild(toast);
 
   setTimeout(() => {
     toast.classList.remove("show");
     setTimeout(() => toast.remove(), 400);
-  }, 3500);
+  }, 3200);
 }
 
 // 6. NAVBAR SCROLL EFFECT
 function setupNavbarScroll() {
   const navbar = document.getElementById("navbar");
+  let ticking = false;
+
   window.addEventListener("scroll", () => {
-    if (window.scrollY > 40) {
-      navbar.classList.add("scrolled");
-    } else {
-      navbar.classList.remove("scrolled");
-    }
-  });
-}
-
-// 7. FUTURISTIC BACKGROUND CANVAS ANIMATION
-function initBackgroundCanvas() {
-  const canvas = document.getElementById("bg-canvas");
-  if (!canvas) return;
-  
-  const ctx = canvas.getContext("2d");
-  let width = canvas.width = window.innerWidth;
-  let height = canvas.height = window.innerHeight;
-
-  window.addEventListener("resize", () => {
-    width = canvas.width = window.innerWidth;
-    height = canvas.height = window.innerHeight;
-  });
-
-  // Create particles
-  const particleCount = 45;
-  const particles = [];
-
-  for (let i = 0; i < particleCount; i++) {
-    particles.push({
-      x: Math.random() * width,
-      y: Math.random() * height,
-      vx: (Math.random() - 0.5) * 0.4,
-      vy: (Math.random() - 0.5) * 0.4,
-      radius: Math.random() * 2 + 1,
-      alpha: Math.random() * 0.5 + 0.2
-    });
-  }
-
-  function animate() {
-    ctx.clearRect(0, 0, width, height);
-
-    // Draw connecting cyan lines
-    for (let i = 0; i < particleCount; i++) {
-      for (let j = i + 1; j < particleCount; j++) {
-        const dx = particles[i].x - particles[j].x;
-        const dy = particles[i].y - particles[j].y;
-        const dist = Math.sqrt(dx * dx + dy * dy);
-
-        if (dist < 130) {
-          ctx.beginPath();
-          ctx.moveTo(particles[i].x, particles[i].y);
-          ctx.lineTo(particles[j].x, particles[j].y);
-          ctx.strokeStyle = `rgba(0, 229, 255, ${0.15 * (1 - dist / 130)})`;
-          ctx.lineWidth = 0.8;
-          ctx.stroke();
+    if (!ticking) {
+      window.requestAnimationFrame(() => {
+        if (window.scrollY > 40) {
+          navbar.classList.add("scrolled");
+        } else {
+          navbar.classList.remove("scrolled");
         }
-      }
+        ticking = false;
+      });
+      ticking = true;
     }
-
-    // Draw & update particles
-    particles.forEach(p => {
-      p.x += p.vx;
-      p.y += p.vy;
-
-      if (p.x < 0 || p.x > width) p.vx *= -1;
-      if (p.y < 0 || p.y > height) p.vy *= -1;
-
-      ctx.beginPath();
-      ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
-      ctx.fillStyle = `rgba(0, 229, 255, ${p.alpha})`;
-      ctx.shadowBlur = 8;
-      ctx.shadowColor = "#00e5ff";
-      ctx.fill();
-      ctx.shadowBlur = 0;
-    });
-
-    requestAnimationFrame(animate);
-  }
-
-  animate();
+  }, { passive: true });
 }
