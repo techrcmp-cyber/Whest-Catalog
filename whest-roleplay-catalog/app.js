@@ -1,8 +1,10 @@
 /* ==========================================================================
    WHEST ROLEPLAY - EXCLUSIVE VEHICLE SHOWROOM LOGIC
+   With Citizen Discount System (Warga Baru 50%, Warga Lama 30%)
+   and Realistic FiveM Speeds (Adjusted per vehicle class, BMW excluded)
    ========================================================================== */
 
-// 1. VEHICLE DATASET (9 Real Custom Vehicles - Clean Real Money Pricing)
+// 1. VEHICLE DATASET (9 Real Custom Vehicles with Balanced Speeds)
 const vehiclesData = [
   {
     id: "nissan-skyline-r33",
@@ -10,11 +12,14 @@ const vehiclesData = [
     code: "R33-GTR-WIDE",
     category: "sport",
     priceReal: "Rp 500.000",
+    priceNewCitizen: "Rp 250.000", // 50% OFF
+    priceOldCitizen: "Rp 350.000", // 30% OFF
+    isClosed: false,
     image: "assets/images/car_r33.jpg",
-    topSpeed: "320 km/h",
-    topSpeedPct: 88,
-    accel: "2.6 Detik",
-    accelPct: 91,
+    topSpeed: "235 km/h",
+    topSpeedPct: 72,
+    accel: "3.6 Detik",
+    accelPct: 75,
     handling: "9.4 / 10",
     handlingPct: 94,
     trunk: "45 KG",
@@ -29,11 +34,14 @@ const vehiclesData = [
     code: "PORSCHE-911-RWB",
     category: "sport",
     priceReal: "Rp 350.000",
+    priceNewCitizen: "Rp 175.000", // 50% OFF
+    priceOldCitizen: "Rp 245.000", // 30% OFF
+    isClosed: false,
     image: "assets/images/car_rwb.jpg",
-    topSpeed: "335 km/h",
-    topSpeedPct: 91,
-    accel: "2.4 Detik",
-    accelPct: 94,
+    topSpeed: "245 km/h",
+    topSpeedPct: 76,
+    accel: "3.3 Detik",
+    accelPct: 78,
     handling: "9.7 / 10",
     handlingPct: 97,
     trunk: "40 KG",
@@ -48,11 +56,14 @@ const vehiclesData = [
     code: "HURACAN-LB-PERF",
     category: "supercar",
     priceReal: "Rp 650.000",
+    priceNewCitizen: "Rp 325.000", // 50% OFF
+    priceOldCitizen: "Rp 455.000", // 30% OFF
+    isClosed: false,
     image: "assets/images/car_huracan.jpg",
-    topSpeed: "355 km/h",
-    topSpeedPct: 96,
-    accel: "2.1 Detik",
-    accelPct: 97,
+    topSpeed: "275 km/h",
+    topSpeedPct: 86,
+    accel: "3.0 Detik",
+    accelPct: 85,
     handling: "9.8 / 10",
     handlingPct: 98,
     trunk: "35 KG",
@@ -67,11 +78,14 @@ const vehiclesData = [
     code: "FERRARI-488-PISTA",
     category: "supercar",
     priceReal: "Rp 450.000",
+    priceNewCitizen: "Rp 225.000", // 50% OFF
+    priceOldCitizen: "Rp 315.000", // 30% OFF
+    isClosed: false,
     image: "assets/images/car_ferrari.jpg",
-    topSpeed: "360 km/h",
-    topSpeedPct: 97,
-    accel: "2.0 Detik",
-    accelPct: 98,
+    topSpeed: "280 km/h",
+    topSpeedPct: 88,
+    accel: "2.9 Detik",
+    accelPct: 87,
     handling: "9.9 / 10",
     handlingPct: 99,
     trunk: "30 KG",
@@ -86,11 +100,14 @@ const vehiclesData = [
     code: "AVENTADOR-SVJ-LB",
     category: "supercar",
     priceReal: "Rp 650.000",
+    priceNewCitizen: "Rp 325.000", // 50% OFF
+    priceOldCitizen: "Rp 455.000", // 30% OFF
+    isClosed: false,
     image: "assets/images/car_aventador.jpg",
-    topSpeed: "375 km/h",
-    topSpeedPct: 100,
-    accel: "1.9 Detik",
-    accelPct: 100,
+    topSpeed: "290 km/h",
+    topSpeedPct: 92,
+    accel: "2.7 Detik",
+    accelPct: 90,
     handling: "10.0 / 10",
     handlingPct: 100,
     trunk: "25 KG",
@@ -105,11 +122,14 @@ const vehiclesData = [
     code: "BENZ-560-SEC-AMG",
     category: "classic",
     priceReal: "Rp 250.000",
+    priceNewCitizen: "Rp 125.000", // 50% OFF
+    priceOldCitizen: "Rp 175.000", // 30% OFF
+    isClosed: false,
     image: "assets/images/car_benz.jpg",
-    topSpeed: "285 km/h",
-    topSpeedPct: 77,
-    accel: "3.4 Detik",
-    accelPct: 80,
+    topSpeed: "210 km/h",
+    topSpeedPct: 62,
+    accel: "4.8 Detik",
+    accelPct: 60,
     handling: "8.9 / 10",
     handlingPct: 89,
     trunk: "80 KG",
@@ -124,11 +144,14 @@ const vehiclesData = [
     code: "AUDI-RS7-SPORTBACK",
     category: "sedan",
     priceReal: "Rp 300.000",
+    priceNewCitizen: "Rp 150.000", // 50% OFF
+    priceOldCitizen: "Rp 210.000", // 30% OFF
+    isClosed: false,
     image: "assets/images/car_rs7.jpg",
-    topSpeed: "325 km/h",
-    topSpeedPct: 89,
-    accel: "2.5 Detik",
-    accelPct: 93,
+    topSpeed: "240 km/h",
+    topSpeedPct: 74,
+    accel: "3.5 Detik",
+    accelPct: 76,
     handling: "9.3 / 10",
     handlingPct: 93,
     trunk: "100 KG",
@@ -143,6 +166,9 @@ const vehiclesData = [
     code: "BMW-M3-G80-STANCE",
     category: "sedan",
     priceReal: "Rp 250.000",
+    priceNewCitizen: "-",
+    priceOldCitizen: "-",
+    isClosed: true, // SUDAH CLOSE (Kecuali BMW, kecepatan tetap)
     image: "assets/images/car_m3g80.jpg",
     topSpeed: "330 km/h",
     topSpeedPct: 90,
@@ -162,11 +188,14 @@ const vehiclesData = [
     code: "CHALLENGER-SRT-DEMON",
     category: "muscle",
     priceReal: "Rp 400.000",
+    priceNewCitizen: "Rp 200.000", // 50% OFF
+    priceOldCitizen: "Rp 280.000", // 30% OFF
+    isClosed: false,
     image: "assets/images/car_challenger.jpg",
-    topSpeed: "315 km/h",
-    topSpeedPct: 86,
-    accel: "2.3 Detik",
-    accelPct: 95,
+    topSpeed: "230 km/h",
+    topSpeedPct: 70,
+    accel: "3.2 Detik",
+    accelPct: 80,
     handling: "8.8 / 10",
     handlingPct: 88,
     trunk: "70 KG",
@@ -218,43 +247,108 @@ function renderCatalog() {
   grid.style.display = "grid";
   if (noResults) noResults.classList.remove("visible");
 
-  grid.innerHTML = filtered.map(item => `
-    <div class="vehicle-card glass-card" data-id="${item.id}">
-      <div class="card-img-wrap">
-        <span class="badge-tag card-badge">${item.category.toUpperCase()}</span>
-        <img src="${item.image}" alt="${item.name}" loading="lazy" decoding="async" width="600" height="350" />
-        <div class="card-price-tag">${item.priceReal}</div>
-      </div>
-      <div class="card-body">
-        <div>
-          <h3 class="vehicle-name">${item.name}</h3>
-          <p class="vehicle-subtitle">${item.code} • ${item.engine}</p>
-        </div>
-        
-        <div class="spec-mini-grid">
-          <div class="spec-mini-item">
-            <span class="spec-mini-val">${item.topSpeed}</span>
-            <span class="spec-mini-lbl">Speed</span>
+  grid.innerHTML = filtered.map(item => {
+    if (item.isClosed) {
+      // CLOSED / SOLD OUT VEHICLE CARD
+      return `
+        <div class="vehicle-card glass-card card-is-closed" data-id="${item.id}">
+          <div class="card-img-wrap">
+            <span class="badge-tag card-badge badge-closed"><i class="fa-solid fa-lock"></i> SUDAH CLOSE</span>
+            <img src="${item.image}" alt="${item.name}" loading="lazy" decoding="async" width="600" height="350" />
+            <div class="card-price-tag price-tag-closed">SUDAH CLOSE</div>
           </div>
-          <div class="spec-mini-item">
-            <span class="spec-mini-val">${item.accel}</span>
-            <span class="spec-mini-lbl">0-100</span>
-          </div>
-          <div class="spec-mini-item">
-            <span class="spec-mini-val">${item.trunk}</span>
-            <span class="spec-mini-lbl">Bagasi</span>
-          </div>
-        </div>
+          <div class="card-body">
+            <div>
+              <h3 class="vehicle-name">${item.name}</h3>
+              <p class="vehicle-subtitle">${item.code} • ${item.engine}</p>
+            </div>
+            
+            <div class="card-pricing-box pricing-box-closed">
+              <div class="closed-notice">
+                <i class="fa-solid fa-circle-exclamation"></i>
+                <span>Pemesanan unit ini telah ditutup (Sold Out)</span>
+              </div>
+            </div>
 
-        <div class="card-footer">
-          <span class="unit-status"><i class="fa-solid fa-check"></i> Official Unit</span>
-          <button class="btn btn-cyan btn-sm" onclick="openVehicleModal('${item.id}')">
-            Detail & Beli
-          </button>
+            <div class="spec-mini-grid">
+              <div class="spec-mini-item">
+                <span class="spec-mini-val">${item.topSpeed}</span>
+                <span class="spec-mini-lbl">Speed</span>
+              </div>
+              <div class="spec-mini-item">
+                <span class="spec-mini-val">${item.accel}</span>
+                <span class="spec-mini-lbl">0-100</span>
+              </div>
+              <div class="spec-mini-item">
+                <span class="spec-mini-val">${item.trunk}</span>
+                <span class="spec-mini-lbl">Bagasi</span>
+              </div>
+            </div>
+
+            <div class="card-footer">
+              <span class="unit-status status-closed"><i class="fa-solid fa-ban"></i> Sudah Close</span>
+              <button class="btn btn-disabled btn-sm" onclick="openVehicleModal('${item.id}')">
+                Detail Unit
+              </button>
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    // OPEN VEHICLE CARD WITH CLEAR DISCOUNTS
+    return `
+      <div class="vehicle-card glass-card" data-id="${item.id}">
+        <div class="card-img-wrap">
+          <span class="badge-tag card-badge">${item.category.toUpperCase()}</span>
+          <img src="${item.image}" alt="${item.name}" loading="lazy" decoding="async" width="600" height="350" />
+          <div class="card-price-tag">
+            <span class="price-strikethrough">${item.priceReal}</span>
+            <span class="price-discount-tag"><i class="fa-solid fa-tags"></i> Diskon Warga</span>
+          </div>
+        </div>
+        <div class="card-body">
+          <div>
+            <h3 class="vehicle-name">${item.name}</h3>
+            <p class="vehicle-subtitle">${item.code} • ${item.engine}</p>
+          </div>
+          
+          <div class="card-pricing-box">
+            <div class="pricing-row">
+              <span class="pricing-label"><i class="fa-solid fa-user-plus"></i> Warga Baru (Diskon 50%)</span>
+              <span class="pricing-value highlight-cyan">${item.priceNewCitizen}</span>
+            </div>
+            <div class="pricing-row">
+              <span class="pricing-label"><i class="fa-solid fa-medal"></i> Warga Lama (Diskon 30%)</span>
+              <span class="pricing-value highlight-purple">${item.priceOldCitizen}</span>
+            </div>
+          </div>
+
+          <div class="spec-mini-grid">
+            <div class="spec-mini-item">
+              <span class="spec-mini-val">${item.topSpeed}</span>
+              <span class="spec-mini-lbl">Speed</span>
+            </div>
+            <div class="spec-mini-item">
+              <span class="spec-mini-val">${item.accel}</span>
+              <span class="spec-mini-lbl">0-100</span>
+            </div>
+            <div class="spec-mini-item">
+              <span class="spec-mini-val">${item.trunk}</span>
+              <span class="spec-mini-lbl">Bagasi</span>
+            </div>
+          </div>
+
+          <div class="card-footer">
+            <span class="unit-status"><i class="fa-solid fa-check"></i> Official Unit</span>
+            <button class="btn btn-cyan btn-sm" onclick="openVehicleModal('${item.id}')">
+              Detail & Beli
+            </button>
+          </div>
         </div>
       </div>
-    </div>
-  `).join("");
+    `;
+  }).join("");
 }
 
 // 3. EVENT LISTENERS SETUP
@@ -313,7 +407,68 @@ function openVehicleModal(id) {
   document.getElementById("modal-img").src = vehicle.image;
   document.getElementById("modal-title").textContent = vehicle.name;
   document.getElementById("modal-code").textContent = `Kode Unit: ${vehicle.code} | Kategori: ${vehicle.category.toUpperCase()}`;
-  document.getElementById("modal-price-val").textContent = `${vehicle.priceReal}`;
+  
+  const priceVal = document.getElementById("modal-price-val");
+  const priceLbl = document.querySelector(".modal-price-lbl");
+  const modalActions = document.querySelector(".modal-actions");
+  
+  // Custom discount breakdown container inside modal
+  let discountContainer = document.getElementById("modal-discount-breakdown");
+  if (!discountContainer) {
+    discountContainer = document.createElement("div");
+    discountContainer.id = "modal-discount-breakdown";
+    const headerBox = document.querySelector(".modal-vehicle-header");
+    headerBox.parentNode.insertBefore(discountContainer, headerBox.nextSibling);
+  }
+
+  if (vehicle.isClosed) {
+    priceVal.textContent = "SUDAH CLOSE";
+    priceVal.className = "modal-price-val text-closed";
+    if (priceLbl) priceLbl.textContent = "Pemesanan unit telah ditutup (Sold Out)";
+    
+    discountContainer.innerHTML = `
+      <div class="closed-notice" style="padding: 12px 16px; background: rgba(239, 68, 68, 0.1); border: 1px solid rgba(239, 68, 68, 0.3); border-radius: var(--radius-sm); margin-top: 10px;">
+        <i class="fa-solid fa-lock" style="color: #f87171; font-size: 1.1rem;"></i>
+        <span style="color: #fca5a5;">Unit BMW M3 G80 Competition telah mencapai kuota pemesanan (Close). Tidak dapat dipesan saat ini.</span>
+      </div>
+    `;
+
+    modalActions.innerHTML = `
+      <button class="btn btn-disabled" style="flex: 1;" disabled>
+        <i class="fa-solid fa-lock"></i> Unit Sudah Close
+      </button>
+      <button class="btn btn-outline" onclick="closeVehicleModal()">
+        Tutup
+      </button>
+    `;
+  } else {
+    priceVal.textContent = vehicle.priceReal;
+    priceVal.className = "modal-price-val";
+    if (priceLbl) priceLbl.textContent = "Harga Normal (Sebelum Diskon)";
+
+    discountContainer.innerHTML = `
+      <div class="modal-discounts-grid">
+        <div class="modal-discount-card new">
+          <span class="discount-card-lbl"><i class="fa-solid fa-user-plus"></i> Warga Baru (Diskon 50%)</span>
+          <span class="discount-card-val highlight-cyan">${vehicle.priceNewCitizen}</span>
+        </div>
+        <div class="modal-discount-card old">
+          <span class="discount-card-lbl"><i class="fa-solid fa-medal"></i> Warga Lama (Diskon 30%)</span>
+          <span class="discount-card-val highlight-purple">${vehicle.priceOldCitizen}</span>
+        </div>
+      </div>
+    `;
+
+    modalActions.innerHTML = `
+      <button class="btn btn-cyan" style="flex: 1;" onclick="orderVehicleViaDiscord()">
+        <i class="fa-brands fa-discord"></i> Order via Ticket Discord
+      </button>
+      <button class="btn btn-outline" onclick="closeVehicleModal()">
+        Tutup
+      </button>
+    `;
+  }
+
   document.getElementById("modal-engine").textContent = vehicle.engine;
   document.getElementById("modal-seats").textContent = vehicle.seats;
   
@@ -358,8 +513,24 @@ function closeVehicleModal() {
 // 5. ORDER TICKET GENERATOR & DISCORD REDIRECT
 function orderVehicleViaDiscord() {
   if (!selectedVehicle) return;
+  if (selectedVehicle.isClosed) {
+    showToast("⚠️ Unit ini sudah close dan tidak dapat dipesan.");
+    return;
+  }
 
-  const ticketText = `[PESANAN MOBIL WHEST ROLEPLAY]\n----------------------------------\nNama Car / Karakter: [Isi Nama IC Anda]\nNama Mobil: ${selectedVehicle.name}\nKode Mobil: ${selectedVehicle.code}\nHarga: ${selectedVehicle.priceReal}\n----------------------------------\nMohon diproses staff Whest RP!`;
+  const ticketText = `[PESANAN MOBIL WHEST ROLEPLAY]
+----------------------------------
+Nama Car / Karakter: [Isi Nama IC Anda]
+Nama Mobil: ${selectedVehicle.name}
+Kode Mobil: ${selectedVehicle.code}
+Kategori: ${selectedVehicle.category.toUpperCase()}
+
+OPSI DISKON HARGA:
+[ ] Warga Baru (Diskon 50%): ${selectedVehicle.priceNewCitizen}
+[ ] Warga Lama (Diskon 30%): ${selectedVehicle.priceOldCitizen}
+(Harga Normal: ${selectedVehicle.priceReal})
+----------------------------------
+Mohon diproses staff dealer Whest RP!`;
 
   const discordUrl = "https://discord.gg/ZKTQNrTqa3";
 
